@@ -1,4 +1,4 @@
- services:
+services:
   - type: web_service
     name: my-rails-app  # Replace with your service name
     env: ruby
