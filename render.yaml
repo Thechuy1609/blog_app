@@ -1,0 +1,15 @@
+ services:
+  - type: web_service
+    name: my-rails-app  # Replace with your service name
+    env: ruby
+    plan: free  # Replace with "starter" or "standard" for higher tiers if needed
+    region: oregon  # Choose a region close to your users (e.g., frankfurt, singapore)
+    buildCommand: bundle install && rake db:migrate
+    startCommand: rails server -b 0.0.0.0 -p $PORT
+    autoDeploy: true
+    branch: main  # Replace with the branch you want to deploy from
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: DATABASE_URL
+        value: your-database-url  # Replace with your actual database URL
